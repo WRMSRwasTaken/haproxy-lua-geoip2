@@ -423,9 +423,9 @@ local function ipv6_split(str)
 	local n = 0
 	for u16 in str:gmatch("(%x%x?%x?%x?):?") do
 		n = n + 1
-		u16 = tonumber(u16, 16)
-		assert(u16, "invalid IPv6 address")
-		components[n] = u16
+		local u16n = tonumber(u16, 16)
+		assert(u16n, "invalid IPv6 address")
+		components[n] = u16n
 	end
 	return components, n
 end
